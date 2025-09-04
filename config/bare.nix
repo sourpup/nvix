@@ -14,5 +14,5 @@
   vim.o.background = "dark"
   '';
 
-  colorscheme = "nightfox";
+  colorscheme = "carbonfox";
 }
