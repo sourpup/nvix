@@ -11,8 +11,8 @@
 
   extraConfigLua =
   ''
-  vim.o.background = "light"
+  vim.o.background = "dark"
   '';
 
-  colorscheme = "rose-pine";
+  colorscheme = "nightfox";
 }
