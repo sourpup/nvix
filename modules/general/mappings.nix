@@ -1,4 +1,4 @@
-{ config, helpers, ... }:
+{ config, lib, ... }:
 let
   inherit (config.nvix.mkKey) mkKeymap mkKeymapWithOpts wKeyObj;
   # Set of General mappings not dependent on any plugins
@@ -60,7 +60,7 @@ let
     (mkKeymap "n" "N" "Nzzzv" "Moving to center")
 
     (mkKeymap "n" "<leader>ft"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             vim.ui.input({ prompt = "Enter FileType: " }, function(input)
@@ -75,7 +75,7 @@ let
       "Set Filetype")
 
     (mkKeymap "n" "<leader>o"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             local file = vim.fn.expand('<cfile>')

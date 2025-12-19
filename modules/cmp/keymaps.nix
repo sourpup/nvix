@@ -1,6 +1,6 @@
-{ helpers, ... }:
+{ lib, ... }:
 {
-  plugins.cmp.settings.mapping = (helpers.mkRaw # lua
+  plugins.cmp.settings.mapping = (lib.nixvim.mkRaw # lua
     ''
       cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),

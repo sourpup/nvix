@@ -1,4 +1,4 @@
-{ helpers, ... }:
+{ lib, ... }:
 {
   plugins = {
     nvim-ufo = {
@@ -37,7 +37,7 @@
           {
             click = "v:lua.ScLa";
             text = [
-              (helpers.mkRaw # lua
+              (lib.nixvim.mkRaw # lua
                 "require('statuscol.builtin').lnumfunc")
               " "
             ];
@@ -45,7 +45,7 @@
           {
             click = "v:lua.ScFa";
             text = [
-              (helpers.mkRaw # lua
+              (lib.nixvim.mkRaw # lua
                 "require('statuscol.builtin').foldfunc")
               " "
             ];
@@ -60,13 +60,13 @@
     foldlevel = 99;
     foldlevelstart = 99;
     foldenable = true;
-    fillchars = helpers.mkRaw ''[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]'';
+    fillchars = lib.nixvim.mkRaw ''[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]'';
   };
 
   autoCmd = [{
     event = [ "BufEnter" "BufNew" ];
     desc = "disable statuscolumn for neo-tree and dashboard";
-    callback = (helpers.mkRaw ''
+    callback = (lib.nixvim.mkRaw ''
       function()
         local ft_ignore = { "dashboard", "neo-tree", "snacks_dashboard" }
         if vim.tbl_contains(ft_ignore, vim.bo.filetype) then

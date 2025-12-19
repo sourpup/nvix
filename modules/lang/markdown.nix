@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, helpers, ... }:
+{ inputs, pkgs, config, lib, ... }:
 let inherit (config.nvix.mkKey) wKeyObj;
 in {
   plugins = {
@@ -23,7 +23,7 @@ in {
       desc = "Setup Markdown mappings";
       event = "Filetype";
       pattern = "markdown";
-      callback = helpers.mkRaw # lua
+      callback = lib.nixvim.mkRaw # lua
         ''
           function()
             -- Set keymap: <leader>p to save and convert to PDF using pandoc

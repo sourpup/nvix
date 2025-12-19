@@ -1,4 +1,4 @@
-{ config, helpers, ... }:
+{ config, lib, ... }:
 let inherit (config.nvix.mkKey) mkKeymap wKeyObj;
 in
 {
@@ -34,7 +34,7 @@ in
     (mkKeymap "n" "<leader>sk" ''<cmd>:lua Snacks.picker.keymaps()<cr>'' "Keymaps")
 
     (mkKeymap "n" "<leader>su"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             Snacks.picker.undo({

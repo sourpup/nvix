@@ -1,4 +1,4 @@
-{ lib, config, helpers, ... }:
+{ lib, config, ... }:
 {
   plugins = {
     mini.modules.comment = {
@@ -41,7 +41,7 @@
   autoCmd = [{
     event = [ "CursorHold" ];
     desc = "lsp show diagnostics on CursorHold";
-    callback = helpers.mkRaw #lua
+    callback = lib.nixvim.mkRaw #lua
       ''
         function()
          local hover_opts = {

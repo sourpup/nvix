@@ -1,5 +1,5 @@
 # onAttach Keymaps
-{ helpers, config, ... }:
+{ lib, config, ... }:
 let inherit (config.nvix.mkKey) mkKeymap wKeyObj;
 in {
 
@@ -27,7 +27,7 @@ in {
     (mkKeymap "n" "[e" "<cmd>Lspsaga diagnostic_jump_prev<cr>" "Jump Prev Diagnostic")
     (mkKeymap "n" "]e" "<cmd>Lspsaga diagnostic_jump_next<cr>" "Jump Next Diagnostic")
     (mkKeymap "n" "K"
-      (helpers.mkRaw ''
+      (lib.nixvim.mkRaw ''
         function()
           local ok, ufo = pcall(require, "ufo")
           if ok then
@@ -42,21 +42,21 @@ in {
 
     # UFO
     (mkKeymap "n" "zR"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             require("ufo").openAllFolds()
           end
         '') "Open all folds")
     (mkKeymap "n" "zM"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             require("ufo").closeAllFolds()
           end
         '') "Close All Folds")
     (mkKeymap "n" "zK"
-      (helpers.mkRaw #lua
+      (lib.nixvim.mkRaw #lua
         ''
           function()
             local winid = require("ufo").peekFoldedLinesUnderCursor()
@@ -89,7 +89,7 @@ in {
     (mkKeymap "n" "]d" "<cmd>:lua vim.diagnostic.goto_next()<cr>" "Next Diagnostic")
     (mkKeymap "n"
       "<leader>lL"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             if vim.g.diagnostic_visible or vim.g.diagnostics_visible == nil then
@@ -105,7 +105,7 @@ in {
     )
     (mkKeymap "n"
       "<leader>ll"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             if vim.diagnostic.config().virtual_text == false then

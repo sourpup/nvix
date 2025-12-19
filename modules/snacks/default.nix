@@ -1,4 +1,4 @@
-{ helpers, lib, ... }:
+{ lib, ... }:
 {
   plugins.snacks = {
     enable = true;
@@ -21,8 +21,8 @@
         hidden = true;
         ignored = true;
         win.input.keys = {
-          v = (helpers.listToUnkeyedAttrs [ "vsplit" ]) // { mode = "n"; };
-          s = (helpers.listToUnkeyedAttrs [ "split" ]) // { mode = "n"; };
+          v = (lib.nixvim.listToUnkeyedAttrs [ "vsplit" ]) // { mode = "n"; };
+          s = (lib.nixvim.listToUnkeyedAttrs [ "split" ]) // { mode = "n"; };
         };
       };
       image = {
@@ -43,7 +43,7 @@
     {
       desc = "Pre init Function";
       event = [ "VimEnter" ];
-      callback = helpers.mkRaw #lua
+      callback = lib.nixvim.mkRaw #lua
         ''
           -- Taken from https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage
           function()

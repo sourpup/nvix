@@ -1,4 +1,4 @@
-{ config, helpers, lib, ... }:
+{ config, lib, ... }:
 let inherit (config.nvix) icons;
 in {
 
@@ -60,7 +60,7 @@ in {
     {
       desc = "Highlight on yank";
       event = [ "TextYankPost" ];
-      callback = helpers.mkRaw #lua
+      callback = lib.nixvim.mkRaw #lua
         ''
           function()
             vim.highlight.on_yank()

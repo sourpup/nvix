@@ -1,4 +1,4 @@
-{ helpers, ... }:
+{ lib, ... }:
 {
   plugins.dashboard = {
     enable = true;
@@ -16,7 +16,7 @@
         project.enable = false;
         shortcut = [
           {
-            action = helpers.mkRaw "function() Snacks.picker.files() end";
+            action = lib.nixvim.mkRaw "function() Snacks.picker.files() end";
             desc = "Files";
             group = "Label";
             icon = " ";
@@ -30,7 +30,7 @@
             key = ".";
           }
           {
-            action = helpers.mkRaw "function() Snacks.picker.recent() end";
+            action = lib.nixvim.mkRaw "function() Snacks.picker.recent() end";
             desc = "󱦠 Recent Files";
             group = "DiagnosticHint";
             key = "r";

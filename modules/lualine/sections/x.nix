@@ -1,9 +1,9 @@
-{ helpers, ... }:
+{ lib, ... }:
 {
   plugins.lualine.settings.sections.lualine_x = [
     {
       color = { fg = "#ff9e64"; };
-      cond = helpers.mkRaw ''
+      cond = lib.nixvim.mkRaw ''
         function()
           local ok, noice = pcall(require, "noice")
           if not ok then
@@ -12,7 +12,7 @@
           return noice.api.status.mode.has()
         end
       '';
-      __unkeyed = helpers.mkRaw # lua
+      __unkeyed = lib.nixvim.mkRaw # lua
         ''
           function()
             local ok, noice = pcall(require, "noice")
@@ -24,7 +24,7 @@
         '';
     }
     {
-      __unkeyed = helpers.mkRaw # lua
+      __unkeyed = lib.nixvim.mkRaw # lua
         ''
           function()
             local clients = vim.lsp.get_active_clients()

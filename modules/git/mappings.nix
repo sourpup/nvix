@@ -1,4 +1,4 @@
-{ config, helpers, ... }:
+{ config, lib, ... }:
 let inherit (config.nvix.mkKey) mkKeymap wKeyObj;
 in {
   wKeyList = [
@@ -17,7 +17,7 @@ in {
     (mkKeymap "n" "<leader>ghd" "<cmd>lua require('gitsigns').diffthis()<cr>" "Diff This")
     (mkKeymap "n" "<leader>ghD" "<cmd>lua require('gitsigns').diffthis('~')<cmd>" "Diff This ~")
     (mkKeymap "n" "]H"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             require 'gitsigns'.nav_hunk("last")
@@ -25,7 +25,7 @@ in {
         '') "Last Hunk")
 
     (mkKeymap "n" "[H"
-      (helpers.mkRaw # lua
+      (lib.nixvim.mkRaw # lua
         ''
           function()
             require 'gitsigns'.nav_hunk("first")

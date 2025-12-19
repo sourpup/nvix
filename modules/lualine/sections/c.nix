@@ -1,4 +1,4 @@
-{ config, helpers, ... }:
+{ config, lib, ... }:
 let inherit (config.nvix) icons;
 in {
 
@@ -10,7 +10,7 @@ in {
     }
     {
       __unkeyed = "diff";
-      source = helpers.mkRaw # lua 
+      source = lib.nixvim.mkRaw # lua 
         ''
           (function()
             local gitsigns = vim.b.gitsigns_status_dict
@@ -24,9 +24,9 @@ in {
           end)
         '';
       symbols = {
-        added = helpers.mkRaw ''"${icons.git.LineAdded}" .. " " '';
-        modified = helpers.mkRaw ''"${icons.git.LineModified}".. " "'';
-        removed = helpers.mkRaw ''"${icons.git.LineRemoved}".. " "'';
+        added = lib.nixvim.mkRaw ''"${icons.git.LineAdded}" .. " " '';
+        modified = lib.nixvim.mkRaw ''"${icons.git.LineModified}".. " "'';
+        removed = lib.nixvim.mkRaw ''"${icons.git.LineRemoved}".. " "'';
       };
     }
 
@@ -34,10 +34,10 @@ in {
       __unkeyed = "diagnostics";
       sources = { __unkeyed = "nvim_diagnostic"; };
       symbols = {
-        error = helpers.mkRaw ''"${icons.diagnostics.BoldError}" .. " "'';
-        warn = helpers.mkRaw ''"${icons.diagnostics.BoldWarning}" .. " "'';
-        info = helpers.mkRaw ''"${icons.diagnostics.BoldInformation}" .. " "'';
-        hint = helpers.mkRaw ''"${icons.diagnostics.BoldHint}" .. " "'';
+        error = lib.nixvim.mkRaw ''"${icons.diagnostics.BoldError}" .. " "'';
+        warn = lib.nixvim.mkRaw ''"${icons.diagnostics.BoldWarning}" .. " "'';
+        info = lib.nixvim.mkRaw ''"${icons.diagnostics.BoldInformation}" .. " "'';
+        hint = lib.nixvim.mkRaw ''"${icons.diagnostics.BoldHint}" .. " "'';
       };
     }
   ];

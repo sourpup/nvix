@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  perSystem = { pkgs, system, ... }:
+  perSystem = { pkgs, ... }:
     let
       inherit (inputs) nixvim;
       extraSpecialArgs = {
@@ -12,12 +12,12 @@
       };
       check = attr: description:
         let
-          output = nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule attr;
+          output = nixvim.lib.${pkgs.stdenv.hostPlatform.system}.check.mkTestDerivationFromNixvimModule attr;
         in
         output // { meta = output.meta // { inherit description; }; };
       package = attr: description:
         let
-          output = nixvim.legacyPackages.${system}.makeNixvimWithModule attr;
+          output = nixvim.legacyPackages.${pkgs.stdenv.hostPlatform.system}.makeNixvimWithModule attr;
         in
         output // { meta = output.meta // { inherit description; }; };
     in
