@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, lib, ... }:
+{ sources, pkgs, config, lib, ... }:
 let inherit (config.nvix.mkKey) wKeyObj;
 in {
   plugins = {
@@ -42,7 +42,7 @@ in {
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       name = "md-pdf";
-      src = inputs.md-pdf;
+      src = sources.md-pdf;
     })
   ];
   extraPackages = with pkgs; [ pandoc ];

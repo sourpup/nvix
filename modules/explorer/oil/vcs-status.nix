@@ -1,10 +1,10 @@
-{ inputs, pkgs, config, ... }:
+{ sources, pkgs, config, ... }:
 let inherit (config.nvix) icons;
 in {
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       name = "oil-vcs-status";
-      src = inputs.oil-vcs-status;
+      src = sources.oil-vcs-status;
       dependencies = [ config.plugins.oil.package ];
     })
   ];

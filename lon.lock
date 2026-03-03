@@ -1,0 +1,55 @@
+{
+  "version": "1",
+  "sources": {
+    "md-pdf": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "arminveres",
+      "repo": "md-pdf.nvim",
+      "branch": "main",
+      "revision": "d0bab77b6965dcd272c3221e6d42d30194d341e2",
+      "url": "https://github.com/arminveres/md-pdf.nvim/archive/d0bab77b6965dcd272c3221e6d42d30194d341e2.tar.gz",
+      "hash": "sha256-jdf2/Z8FyRxNRC4+gPH7+8L31Todk1r60VNZP/2vVvk="
+    },
+    "nixpkgs": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "NixOS",
+      "repo": "nixpkgs",
+      "branch": "nixos-unstable",
+      "revision": "8c809a146a140c5c8806f13399592dbcb1bb5dc4",
+      "url": "https://github.com/NixOS/nixpkgs/archive/8c809a146a140c5c8806f13399592dbcb1bb5dc4.tar.gz",
+      "hash": "sha256-WGV2hy+VIeQsYXpsLjdr4GvHv5eECMISX1zKLTedhdg="
+    },
+    "nixvim": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "nix-community",
+      "repo": "nixvim",
+      "branch": "main",
+      "revision": "21ae25e13b01d3b4cdc750b5f9e7bad68b150c10",
+      "url": "https://github.com/nix-community/nixvim/archive/21ae25e13b01d3b4cdc750b5f9e7bad68b150c10.tar.gz",
+      "hash": "sha256-3DmCFOdmbkFML1/G9gj8Wb+rCCZFPOQtNoMCpqOF8SA="
+    },
+    "oil-lsp-diagnostics": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "JezerM",
+      "repo": "oil-lsp-diagnostics.nvim",
+      "branch": "master",
+      "revision": "282308383d8d8485937aaf3c28b44fa1cb26007a",
+      "url": "https://github.com/JezerM/oil-lsp-diagnostics.nvim/archive/282308383d8d8485937aaf3c28b44fa1cb26007a.tar.gz",
+      "hash": "sha256-IK1HhHbCI6qLgIuAciox3E43Cn4Cq2QHeRjd8l5NMnE="
+    },
+    "oil-vcs-status": {
+      "type": "GitHub",
+      "fetchType": "tarball",
+      "owner": "SirZenith",
+      "repo": "oil-vcs-status",
+      "branch": "main",
+      "revision": "e0dd01a19f521b2393018e8466d46120a8ffba71",
+      "url": "https://github.com/SirZenith/oil-vcs-status/archive/e0dd01a19f521b2393018e8466d46120a8ffba71.tar.gz",
+      "hash": "sha256-ZxzrGMxD1YOa+3NutEopurrHo7RwWD1GvikWxB1t/VA="
+    }
+  }
+}

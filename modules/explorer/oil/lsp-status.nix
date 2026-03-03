@@ -1,9 +1,9 @@
-{ inputs, pkgs, config, ... }:
+{ sources, pkgs, config, ... }:
 {
   extraPlugins = [
     (pkgs.vimUtils.buildVimPlugin {
       name = "oil-lsp-diagnostics";
-      src = inputs.oil-lsp-diagnostics;
+      src = sources.oil-lsp-diagnostics;
       dependencies = [ config.plugins.oil.package ];
     })
   ];
